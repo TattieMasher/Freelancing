@@ -2,6 +2,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.TreeSet;
 
 public class Main {
     public static void main(String[] args) {
@@ -20,7 +21,7 @@ public class Main {
         }
 
         try {
-            User user = dao.getUserById(3);
+            User user = UserDAO.getUserById(3);
             System.out.println("Accessing user id 1...");
             System.out.println("Name: " + user.getfName() + " " + user.getsName());
         } catch (Exception e) {
@@ -29,6 +30,32 @@ public class Main {
 
         try {
             UserDAO.insertUser("Candace", "Scoular", "candyscouly@gmail.com", "Carmex123");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        try {
+            Client c = ClientDAO.getClientById(1);
+            System.out.println("Get client details: " + c.getName() + " " + c.getId());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        try {
+            Shift shift = ShiftsDAO.getShift();
+            System.out.println("Get shift details: " + shift.getId() + ", " + shift.getStartDate() + " - " + shift.getEndDate() + ": " + shift.getClientName());
+            System.out.println("Worker id: " + shift.getWorkerId() + " " + shift.getWorkerName());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        try {
+            TreeSet<Shift> shifts = ShiftsDAO.getAllShiftsByClient(1);
+            System.out.println("Trying...");
+            for (Shift shift : shifts) {
+                System.out.println("Get shift details: " + shift.getId() + ", " + shift.getStartDate() + " - " + shift.getEndDate() + ": " + shift.getClientName());
+                System.out.println("Worker id: " + shift.getWorkerId() + " " + shift.getWorkerName());
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }

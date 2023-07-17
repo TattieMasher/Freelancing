@@ -34,7 +34,7 @@ public class UserDAO {
         return users;
     }
 
-    public User getUserById(int id) throws SQLException {
+    public static User getUserById(int id) throws SQLException {
         User result = null;
 
         try (Connection connection = DbManager.getConnection();

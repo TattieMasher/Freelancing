@@ -1,7 +1,7 @@
 public class Client {
     private int id;
     private String name;
-    private int primary_user;
+    private int primary_user; // TODO: Maybe add primary user's name?
 
     public Client(int id, String name, int primary_user) {
         this.id = id;
