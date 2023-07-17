@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7385b9b2-a597-4163-8543-931f1614cca8" name="Changes" comment="Initial commit.&#10;&#10;Created a class to manage database connections using HikariCP (https://github.com/brettwooldridge/HikariCP), added mysql-connector-J and Log4J 2.&#10;&#10;Created standard class to model a worker's shift and  a class to hold shifts. &#10;&#10;Tested the above with the simple SQL query in main().">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Client.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/UserDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Shift.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Shift.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Shifts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Shifts.java" afterDir="false" />
-    </list>
+    <list default="true" id="7385b9b2-a597-4163-8543-931f1614cca8" name="Changes" comment="Created a DAO class for the User objects and made some short/simple tests." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -72,11 +64,31 @@
       <option name="project" value="LOCAL" />
       <updated>1689435650705</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Created a DAO class for the User objects and made some short/simple tests.">
+      <option name="closed" value="true" />
+      <created>1689620824070</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1689620824070</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial commit.&#10;&#10;Created a class to manage database connections using HikariCP (https://github.com/brettwooldridge/HikariCP), added mysql-connector-J and Log4J 2.&#10;&#10;Created standard class to model a worker's shift and  a class to hold shifts. &#10;&#10;Tested the above with the simple SQL query in main()." />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial commit.&#10;&#10;Created a class to manage database connections using HikariCP (https://github.com/brettwooldridge/HikariCP), added mysql-connector-J and Log4J 2.&#10;&#10;Created standard class to model a worker's shift and  a class to hold shifts. &#10;&#10;Tested the above with the simple SQL query in main()." />
+    <MESSAGE value="Created a DAO class for the User objects and made some short/simple tests." />
+    <option name="LAST_COMMIT_MESSAGE" value="Created a DAO class for the User objects and made some short/simple tests." />
   </component>
 </project>
