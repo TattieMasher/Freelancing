@@ -1,11 +1,10 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class Shifts {
-    private List<Shift> shifts;
+    private TreeSet<Shift> shifts;
 
     public Shifts() {
-        shifts = new ArrayList<>();
+        shifts = new TreeSet<>(Comparator.comparing(Shift::getStartDate));
     }
 
     public void addShift(Shift shift) {
@@ -16,9 +15,9 @@ public class Shifts {
         shifts.remove(shift);
     }
 
-    public List<Shift> getAllShifts() {
+    public TreeSet<Shift> getAllShifts() {
         return shifts;
     }
 
-    // Other methods to implement
+    // Other methods and operations
 }
