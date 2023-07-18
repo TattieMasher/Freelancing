@@ -132,6 +132,7 @@ public class ShiftsDAO {
             try (ResultSet resultSet = statement.executeQuery()) {
                 while (resultSet.next()) {
                     // Retrieve column values from the result set
+                    int shiftId = resultSet.getInt("id");
                     LocalDateTime start = resultSet.getObject("start", LocalDateTime.class); // Retrieve as LocalDateTime
                     LocalDateTime end = resultSet.getObject("end", LocalDateTime.class);
                     List<String> requiredSkills = null; // TODO: Populate this (way down the line)
@@ -146,18 +147,20 @@ public class ShiftsDAO {
                     User admin = null;
                     User worker = null;
 
-                    // Get Client details
+                    // Get Client details (cannot be null in DB)
                     try {
                         client = ClientDAO.getClientById(clientId);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
 
-                    // Get shift admin details
-                    try {
-                        admin = UserDAO.getUserById(adminId);
-                    } catch (Exception e) {
-                        e.printStackTrace();
+                    // Get shift admin details (can be null) TODO: check if we want this, going forward
+                    if (adminId != 0) {     // 0 if NULL in DB
+                        try {
+                            admin = UserDAO.getUserById(adminId);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
                     }
 
                     // Get worker details (if they exist)
@@ -167,7 +170,7 @@ public class ShiftsDAO {
                         e.printStackTrace();
                     }
 
-                    Shift shift = new Shift(start, end, client.getId(), client.getName(), admin.getId(), (admin.getfName() + " "
+                    Shift shift = new Shift(shiftId, start, end, client.getId(), client.getName(), admin.getId(), (admin.getfName() + " "
                             + admin.getsName()), worker.getId(), (worker.getfName() + " " + worker.getsName()));
                     shifts.add(shift);
                 }

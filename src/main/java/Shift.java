@@ -1,7 +1,7 @@
 import java.time.LocalDateTime;
 import java.util.List;
 
-public class Shift {
+public class Shift implements Comparable<Shift> {
     private int id;
     private LocalDateTime startDate;
     private LocalDateTime endDate;
@@ -17,6 +17,7 @@ public class Shift {
     private int workerId;
     private String workerName;
 
+    // Constructors of various different parameters, not all will be used in the end
     public Shift(int id, LocalDateTime startDate, LocalDateTime endDate, List<String> requiredSkills, int clientId, String clientName, int adminId, String adminName, int workerId, String workerName) {
         this.id = id;
         this.startDate = startDate;
@@ -165,6 +166,24 @@ public class Shift {
 
     public void setWorkerName(String workerName) {
         this.workerName = workerName;
+    }
+
+    @Override
+    public int compareTo(Shift other) {
+        int startComparison = this.getStartDate().compareTo(other.getStartDate());
+        if (startComparison != 0) {
+            // If the start values are different, return the comparison result
+            return startComparison;
+        }
+
+        int endComparison = this.getEndDate().compareTo(other.getEndDate());
+        if (endComparison != 0) {
+            // If the end values are different, return the comparison result
+            return endComparison;
+        }
+
+        // If both start and end values are the same, compare based on the id
+        return Integer.compare(this.getId(), other.getId());
     }
 
     // Other methods to implement
