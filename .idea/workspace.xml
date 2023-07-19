@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7385b9b2-a597-4163-8543-931f1614cca8" name="Changes" comment="Created DAO For Shifts and added some more tests. There's been small issues popping up throughout development (documented with TODO comments), which I will soon resolve.">
+    <list default="true" id="7385b9b2-a597-4163-8543-931f1614cca8" name="Changes" comment="ShiftDAO now able to construct a shift, if the worker_id and shift_admin_id field in the database is populated.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Shift.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Shift.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ShiftsDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ShiftsDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UserDAO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,7 +95,15 @@
       <option name="project" value="LOCAL" />
       <updated>1689631171973</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="ShiftDAO now able to construct a shift, if the worker_id and shift_admin_id field in the database is populated.">
+      <option name="closed" value="true" />
+      <created>1689719115230</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1689719115230</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -111,7 +121,8 @@
     <MESSAGE value="Initial commit.&#10;&#10;Created a class to manage database connections using HikariCP (https://github.com/brettwooldridge/HikariCP), added mysql-connector-J and Log4J 2.&#10;&#10;Created standard class to model a worker's shift and  a class to hold shifts. &#10;&#10;Tested the above with the simple SQL query in main()." />
     <MESSAGE value="Created a DAO class for the User objects and made some short/simple tests." />
     <MESSAGE value="Created DAO For Shifts and added some more tests. There's been small issues popping up throughout development (documented with TODO comments), which I will soon resolve." />
-    <option name="LAST_COMMIT_MESSAGE" value="Created DAO For Shifts and added some more tests. There's been small issues popping up throughout development (documented with TODO comments), which I will soon resolve." />
+    <MESSAGE value="ShiftDAO now able to construct a shift, if the worker_id and shift_admin_id field in the database is populated." />
+    <option name="LAST_COMMIT_MESSAGE" value="ShiftDAO now able to construct a shift, if the worker_id and shift_admin_id field in the database is populated." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -121,24 +132,9 @@
           <option name="timeStamp" value="7" />
         </breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Main.java</url>
-          <line>54</line>
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ShiftsDAO.java</url>
           <line>68</line>
           <option name="timeStamp" value="31" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/ShiftsDAO.java</url>
-          <line>178</line>
-          <option name="timeStamp" value="33" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/ShiftsDAO.java</url>
-          <line>143</line>
-          <option name="timeStamp" value="38" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

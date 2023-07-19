@@ -79,6 +79,16 @@ public class Shift implements Comparable<Shift> {
         this.clientName = clientName;
     }
 
+    public Shift(int id, LocalDateTime startDate, LocalDateTime endDate, float rate, int clientId, String clientName) {
+        this.id = id;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.rate = rate;
+        this.rateInPennies = (int) (rate * 100);    // TODO: Check me. Done for quickness
+        this.clientId = clientId;
+        this.clientName = clientName;
+    }
+
     public int getId() {
         return id;
     }

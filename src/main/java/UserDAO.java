@@ -70,7 +70,7 @@ public class UserDAO {
         boolean result = false;
 
         try (Connection connection = DbManager.getConnection();
-             PreparedStatement statement = connection.prepareStatement("INSERT INTO User (first_name, second_name, email, password, type)\n" +
+             PreparedStatement statement = connection.prepareStatement("INSERT INTO User (first_name, second_name, email, password, type) " +
                      "VALUES (?, ?, ?, ?, ?)")) {
             statement.setString(1, fName);
             statement.setString(2, sName);
