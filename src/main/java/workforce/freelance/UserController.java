@@ -22,8 +22,8 @@ public class UserController {
         return userRepository.findAll();
     }
 
-    @GetMapping("/{id}")
-    private User getUserById(@PathVariable int id) {
+    @GetMapping("/get/{id}")
+    public User getUserById(@PathVariable int id) {
         Optional<Object> userOptional = userRepository.findById(id);
 
         if (userOptional.isPresent()) {
@@ -33,35 +33,42 @@ public class UserController {
         }
     }
 
-    @PutMapping("/{id}/firstName")
+
+    @PutMapping("/get/{id}")
+    public User updateUser(@PathVariable int id, @RequestBody User updatedUser) {
+        updatedUser.setId(id); // Ensure the correct ID is set for the updated User
+        return userRepository.save(updatedUser);
+    }
+
+    @PutMapping("/get/{id}/first-name")
     public User updateFirstName(@PathVariable int id, @RequestBody String firstName) {
         User existingUser = getUserById(id);
         existingUser.setfName(firstName);
         return userRepository.save(existingUser);
     }
 
-    @PutMapping("/{id}/lastName")
+    @PutMapping("/get/{id}/last-name")
     public User updateLastName(@PathVariable int id, @RequestBody String lastName) {
         User existingUser = getUserById(id);
         existingUser.setsName(lastName);
         return userRepository.save(existingUser);
     }
 
-    @PutMapping("/{id}/email")
+    @PutMapping("/get/{id}/email")
     public User updateEmail(@PathVariable int id, @RequestBody String email) {
         User existingUser = getUserById(id);
         existingUser.setEmail(email);
         return userRepository.save(existingUser);
     }
 
-    @PutMapping("/{id}/verified")
+    @PutMapping("/get/{id}/verified")
     public User updateVerifiedStatus(@PathVariable int id, @RequestBody boolean verified) {
         User existingUser = getUserById(id);
         existingUser.setVerified(verified);
         return userRepository.save(existingUser);
     }
 
-    @PutMapping("/{id}/userType")
+    @PutMapping("/get/{id}/userType")
     public User updateUserType(@PathVariable int id, @RequestBody int userType) {
         User existingUser = getUserById(id);
         existingUser.setUserType(userType);

@@ -23,7 +23,7 @@ public class ClientController {
     }
 
     // Get a client
-    @GetMapping("/{id}")
+    @GetMapping("/get/{id}")
     public Optional<Client> getClientById(@PathVariable Long id) {
         return clientRepository.findById(id);
     }
@@ -33,13 +33,13 @@ public class ClientController {
         return clientRepository.save(newClient);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/get/{id}")
     public Client updateClient(@PathVariable Long id, @RequestBody Client updatedClient) {
         updatedClient.setId(id); // Ensure the correct ID is set for the updated client
         return clientRepository.save(updatedClient);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/get/{id}")
     public void deleteClient(@PathVariable Long id) {
         clientRepository.deleteById(id);
     }

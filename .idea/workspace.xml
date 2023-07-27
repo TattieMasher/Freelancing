@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7385b9b2-a597-4163-8543-931f1614cca8" name="Changes" comment="Removed old files from previous, vanilla POJO approach.">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="7385b9b2-a597-4163-8543-931f1614cca8" name="Changes" comment="Added @OneToOne relationship within Client objects to hold the primary User, represented as an object.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/workforce/freelance/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/workforce/freelance/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/workforce/freelance/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/workforce/freelance/ClientController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/workforce/freelance/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/workforce/freelance/UserController.java" afterDir="false" />
     </list>
@@ -127,7 +125,15 @@
       <option name="project" value="LOCAL" />
       <updated>1690497958908</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Added @OneToOne relationship within Client objects to hold the primary User, represented as an object.">
+      <option name="closed" value="true" />
+      <created>1690499501629</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1690499501629</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -148,7 +154,8 @@
     <MESSAGE value="ShiftDAO now able to construct a shift, if the worker_id and shift_admin_id field in the database is populated." />
     <MESSAGE value="Added deleting method to ShiftDAO and some more retrieval methods" />
     <MESSAGE value="Removed old files from previous, vanilla POJO approach." />
-    <option name="LAST_COMMIT_MESSAGE" value="Removed old files from previous, vanilla POJO approach." />
+    <MESSAGE value="Added @OneToOne relationship within Client objects to hold the primary User, represented as an object." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added @OneToOne relationship within Client objects to hold the primary User, represented as an object." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
