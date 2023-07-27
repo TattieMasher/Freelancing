@@ -5,6 +5,9 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * TODO: Check that request MAPPiNGS are to identify and that request BODIES are to supply data
+ */
 @RestController
 @RequestMapping("/api/users")
 public class UserController {

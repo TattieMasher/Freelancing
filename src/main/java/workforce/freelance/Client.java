@@ -11,15 +11,20 @@ public class Client {
     private String name;
 
     @Column(name = "primary_user")
-    private Long primaryUser;
+    private Long primaryUserId;
+
+    // TODO: CHECK ME
+    @OneToOne
+    @JoinColumn(insertable=false, updatable=false, name = "primary_user", referencedColumnName = "id")
+    private User primaryUser;
 
     public Client() {
     }
 
-    public Client(Long id, String name, Long primaryUser) {
+    public Client(Long id, String name, Long primaryUserId) {
         this.id = id;
         this.name = name;
-        this.primaryUser = primaryUser;
+        this.primaryUserId = primaryUserId;
     }
 
     public Long getId() {
@@ -38,11 +43,19 @@ public class Client {
         this.name = name;
     }
 
-    public Long getPrimaryUser() {
+    public Long getPrimaryUserId() {
+        return primaryUserId;
+    }
+
+    public void setPrimaryUserId(Long primaryUser) {
+        this.primaryUserId = primaryUser;
+    }
+
+    public User getPrimaryUser() {
         return primaryUser;
     }
 
-    public void setPrimaryUser(Long primaryUser) {
+    public void setPrimaryUser(User primaryUser) {
         this.primaryUser = primaryUser;
     }
 }

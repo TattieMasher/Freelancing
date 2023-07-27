@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7385b9b2-a597-4163-8543-931f1614cca8" name="Changes" comment="Added deleting method to ShiftDAO and some more retrieval methods">
+    <list default="true" id="7385b9b2-a597-4163-8543-931f1614cca8" name="Changes" comment="Removed old files from previous, vanilla POJO approach.">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Shifts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Shifts.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ShiftsDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ShiftsDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/workforce/freelance/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/workforce/freelance/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/workforce/freelance/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/workforce/freelance/ClientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/workforce/freelance/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/workforce/freelance/UserController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +27,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="UPDATE_TYPE" value="REBASE" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectId" id="2Sc63cC4ey8S9WiRwXpaoF74N4O" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -36,9 +41,9 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "/home/alex/Downloads/freelance",
+    "last_opened_file_path": "/home/alex/IdeaProjects/Freelancing",
     "onboarding.tips.debug.path": "/home/alex/IdeaProjects/Freelancing/src/main/java/org/example/Main.java",
-    "project.structure.last.edited": "Modules",
+    "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "preferences.pluginManager"
@@ -114,7 +119,15 @@
       <option name="project" value="LOCAL" />
       <updated>1689725134705</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Removed old files from previous, vanilla POJO approach.">
+      <option name="closed" value="true" />
+      <created>1690497958908</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1690497958908</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -134,7 +147,8 @@
     <MESSAGE value="Created DAO For Shifts and added some more tests. There's been small issues popping up throughout development (documented with TODO comments), which I will soon resolve." />
     <MESSAGE value="ShiftDAO now able to construct a shift, if the worker_id and shift_admin_id field in the database is populated." />
     <MESSAGE value="Added deleting method to ShiftDAO and some more retrieval methods" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added deleting method to ShiftDAO and some more retrieval methods" />
+    <MESSAGE value="Removed old files from previous, vanilla POJO approach." />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed old files from previous, vanilla POJO approach." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -143,16 +157,6 @@
           <properties class="java.lang.NullPointerException" package="java.lang" />
           <option name="timeStamp" value="7" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/ShiftsDAO.java</url>
-          <line>68</line>
-          <option name="timeStamp" value="31" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Main.java</url>
-          <line>128</line>
-          <option name="timeStamp" value="54" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
