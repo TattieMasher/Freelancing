@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7385b9b2-a597-4163-8543-931f1614cca8" name="Changes" comment="ShiftDAO now able to construct a shift, if the worker_id and shift_admin_id field in the database is populated.">
+    <list default="true" id="7385b9b2-a597-4163-8543-931f1614cca8" name="Changes" comment="Added deleting method to ShiftDAO and some more retrieval methods">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Shift.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Shift.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Shifts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Shifts.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ShiftsDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ShiftsDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UserDAO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,14 +31,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;/home/alex/IdeaProjects/Freelancing/src/main/java/org/example/Main.java&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_opened_file_path": "/home/alex/Downloads/freelance",
+    "onboarding.tips.debug.path": "/home/alex/IdeaProjects/Freelancing/src/main/java/org/example/Main.java",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
@@ -103,7 +106,15 @@
       <option name="project" value="LOCAL" />
       <updated>1689719115230</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Added deleting method to ShiftDAO and some more retrieval methods">
+      <option name="closed" value="true" />
+      <created>1689725134705</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1689725134705</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -122,7 +133,8 @@
     <MESSAGE value="Created a DAO class for the User objects and made some short/simple tests." />
     <MESSAGE value="Created DAO For Shifts and added some more tests. There's been small issues popping up throughout development (documented with TODO comments), which I will soon resolve." />
     <MESSAGE value="ShiftDAO now able to construct a shift, if the worker_id and shift_admin_id field in the database is populated." />
-    <option name="LAST_COMMIT_MESSAGE" value="ShiftDAO now able to construct a shift, if the worker_id and shift_admin_id field in the database is populated." />
+    <MESSAGE value="Added deleting method to ShiftDAO and some more retrieval methods" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added deleting method to ShiftDAO and some more retrieval methods" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -135,6 +147,11 @@
           <url>file://$PROJECT_DIR$/src/main/java/ShiftsDAO.java</url>
           <line>68</line>
           <option name="timeStamp" value="31" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Main.java</url>
+          <line>128</line>
+          <option name="timeStamp" value="54" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
