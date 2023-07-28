@@ -1,5 +1,6 @@
 package workforce.freelance;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -34,13 +35,49 @@ public class ClientController {
     }
 
     @PutMapping("/get/{id}")
-    public Client updateClient(@PathVariable Long id, @RequestBody Client updatedClient) {
-        updatedClient.setId(id); // Ensure the correct ID is set for the updated client
-        return clientRepository.save(updatedClient);
+    public ResponseEntity<Client> updateClient(@PathVariable Long id, @RequestBody Client updatedClient) {
+        // Validate the 'id' parameter
+        if (!isValidClientId(id)) {
+            return ResponseEntity.badRequest().build(); // Invalid 'id' parameter
+        }
+
+        // Check if the client with the given ID exists in the database
+        if (!doesClientExist(id)) {
+            return ResponseEntity.notFound().build(); // Client with the given ID not found
+        }
+
+        // Validate the 'updatedClient' object
+        if (!isValidUpdatedClient(id, updatedClient)) {
+            return ResponseEntity.badRequest().build(); // Invalid 'updatedClient' object or ID mismatch
+        }
+
+        // Set the correct ID for the updated client
+        updatedClient.setId(id);
+
+        // Save the updated client
+        Client savedClient = clientRepository.save(updatedClient);
+
+        return ResponseEntity.ok(savedClient); // Return the updated client in the response
     }
 
     @DeleteMapping("/get/{id}")
     public void deleteClient(@PathVariable Long id) {
         clientRepository.deleteById(id);
+    }
+
+    // Validation methods
+    // Validate client id parameters
+    private boolean isValidClientId(Long id) {
+        return id != null && id > 0;
+    }
+
+    // Check if the client with the given id exists in the database
+    private boolean doesClientExist(Long id) {
+        return clientRepository.findById(id).isPresent();
+    }
+
+    // Validate the 'updatedClient' object
+    private boolean isValidUpdatedClient(Long id, Client updatedClient) {
+        return updatedClient != null && updatedClient.getId() != null && updatedClient.getId().equals(id);
     }
 }
