@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7385b9b2-a597-4163-8543-931f1614cca8" name="Changes" comment="Added some validation methods to ClientController and implemented them in updateClient().">
+    <list default="true" id="7385b9b2-a597-4163-8543-931f1614cca8" name="Changes" comment="Cleaned up updateClient and added a deleteClient method">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/workforce/freelance/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/workforce/freelance/ClientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/workforce/freelance/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/workforce/freelance/UserController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +24,19 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="UPDATE_TYPE" value="REBASE" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="9204712e-914f-4ba9-9197-cb742d407060" />
+        <option name="url" value="git@github.com:TattieMasher/Freelancing" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -148,7 +162,15 @@
       <option name="project" value="LOCAL" />
       <updated>1690568590372</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Cleaned up updateClient and added a deleteClient method">
+      <option name="closed" value="true" />
+      <created>1690591540391</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1690591540391</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -172,7 +194,8 @@
     <MESSAGE value="Added @OneToOne relationship within Client objects to hold the primary User, represented as an object." />
     <MESSAGE value="In UserController, made the request URIs more readable and sorted the getUserById (public accessor now). Also added an updateUser() method to take a full user JSON and save it to the database.&#10;&#10;In ClientController, I just made the URIs better, by specifying &quot;/get/&quot; in Client-specific requests." />
     <MESSAGE value="Added some validation methods to ClientController and implemented them in updateClient()." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added some validation methods to ClientController and implemented them in updateClient()." />
+    <MESSAGE value="Cleaned up updateClient and added a deleteClient method" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cleaned up updateClient and added a deleteClient method" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

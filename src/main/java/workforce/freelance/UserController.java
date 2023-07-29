@@ -1,5 +1,6 @@
 package workforce.freelance;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -33,45 +34,39 @@ public class UserController {
         }
     }
 
-
     @PutMapping("/get/{id}")
-    public User updateUser(@PathVariable int id, @RequestBody User updatedUser) {
+    public User updateUser(@PathVariable Long id, @RequestBody User updatedUser) {
         updatedUser.setId(id); // Ensure the correct ID is set for the updated User
         return userRepository.save(updatedUser);
     }
 
-    @PutMapping("/get/{id}/first-name")
-    public User updateFirstName(@PathVariable int id, @RequestBody String firstName) {
-        User existingUser = getUserById(id);
-        existingUser.setfName(firstName);
-        return userRepository.save(existingUser);
+    // Validate user id parameter
+    private boolean isValidId(Long id) {
+        return id != null && id > 0;
     }
 
-    @PutMapping("/get/{id}/last-name")
-    public User updateLastName(@PathVariable int id, @RequestBody String lastName) {
-        User existingUser = getUserById(id);
-        existingUser.setsName(lastName);
-        return userRepository.save(existingUser);
+    // Check if the user with the given id exists in the database (calls isValidId)
+    private boolean doesUserExist(Long id) {
+        // Validate id as not null and > 0
+        if(!isValidId(id)) {
+            return false;
+        }
+
+        return userRepository.findById(id).isPresent();
     }
 
-    @PutMapping("/get/{id}/email")
-    public User updateEmail(@PathVariable int id, @RequestBody String email) {
-        User existingUser = getUserById(id);
-        existingUser.setEmail(email);
-        return userRepository.save(existingUser);
+    // Validate the 'updatedClient' object
+    private boolean isValidUser(Long id, User updatedUser) {
+        return updatedUser != null && updatedUser.getId() != null && updatedUser.getId().equals(id);
     }
 
-    @PutMapping("/get/{id}/verified")
-    public User updateVerifiedStatus(@PathVariable int id, @RequestBody boolean verified) {
-        User existingUser = getUserById(id);
-        existingUser.setVerified(verified);
-        return userRepository.save(existingUser);
-    }
+    // Validation method for 'userToDelete' object
+    private ResponseEntity<String> isValidClientToDelete(Long id, Client clientToDelete) {
+        if (clientToDelete == null || !id.equals(clientToDelete.getId())) {
+            return ResponseEntity.badRequest().body("Client ID mismatch");
+        }
 
-    @PutMapping("/get/{id}/userType")
-    public User updateUserType(@PathVariable int id, @RequestBody int userType) {
-        User existingUser = getUserById(id);
-        existingUser.setUserType(userType);
-        return userRepository.save(existingUser);
+        // If all validations pass, return null to indicate success
+        return null;
     }
 }

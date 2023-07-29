@@ -53,7 +53,6 @@ public class ClientController {
         return ResponseEntity.ok(savedClient); // Return the updated client in the response
     }
 
-    // Validation methods
     @DeleteMapping("/get/{id}")
     public ResponseEntity<String> deleteClient(@PathVariable Long id, @RequestBody Client clientToDelete) {
         // Check if the client with the given id exists in the database
@@ -73,12 +72,14 @@ public class ClientController {
         return ResponseEntity.ok("Client deleted successfully");
     }
 
-    // Validate client id parameters
+    // Validation methods
+
+    // Validate client id parameter
     private boolean isValidClientId(Long id) {
         return id != null && id > 0;
     }
-    // Check if the client with the given id exists in the database (calls isValidClientId)
 
+    // Check if the client with the given id exists in the database (calls isValidId)
     private boolean doesClientExist(Long id) {
         // Validate id as not null and > 0
         if(!isValidClientId(id)) {
@@ -87,8 +88,8 @@ public class ClientController {
 
         return clientRepository.findById(id).isPresent();
     }
-    // Validate the 'updatedClient' object
 
+    // Validate the 'updatedClient' object, cannot be null and must have an existing id in database
     private boolean isValidUpdatedClient(Long id, Client updatedClient) {
         return updatedClient != null && updatedClient.getId() != null && updatedClient.getId().equals(id);
     }
