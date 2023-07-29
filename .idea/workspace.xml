@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7385b9b2-a597-4163-8543-931f1614cca8" name="Changes" comment="In UserController, made the request URIs more readable and sorted the getUserById (public accessor now). Also added an updateUser() method to take a full user JSON and save it to the database.&#10;&#10;In ClientController, I just made the URIs better, by specifying &quot;/get/&quot; in Client-specific requests.">
+    <list default="true" id="7385b9b2-a597-4163-8543-931f1614cca8" name="Changes" comment="Added some validation methods to ClientController and implemented them in updateClient().">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/workforce/freelance/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/workforce/freelance/ClientController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/workforce/freelance/Shift.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/workforce/freelance/Shift.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -141,7 +140,15 @@
       <option name="project" value="LOCAL" />
       <updated>1690501245350</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Added some validation methods to ClientController and implemented them in updateClient().">
+      <option name="closed" value="true" />
+      <created>1690568590372</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1690568590372</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -164,7 +171,8 @@
     <MESSAGE value="Removed old files from previous, vanilla POJO approach." />
     <MESSAGE value="Added @OneToOne relationship within Client objects to hold the primary User, represented as an object." />
     <MESSAGE value="In UserController, made the request URIs more readable and sorted the getUserById (public accessor now). Also added an updateUser() method to take a full user JSON and save it to the database.&#10;&#10;In ClientController, I just made the URIs better, by specifying &quot;/get/&quot; in Client-specific requests." />
-    <option name="LAST_COMMIT_MESSAGE" value="In UserController, made the request URIs more readable and sorted the getUserById (public accessor now). Also added an updateUser() method to take a full user JSON and save it to the database.&#10;&#10;In ClientController, I just made the URIs better, by specifying &quot;/get/&quot; in Client-specific requests." />
+    <MESSAGE value="Added some validation methods to ClientController and implemented them in updateClient()." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added some validation methods to ClientController and implemented them in updateClient()." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -35,49 +35,71 @@ public class ClientController {
     }
 
     @PutMapping("/get/{id}")
-    public ResponseEntity<Client> updateClient(@PathVariable Long id, @RequestBody Client updatedClient) {
-        // Validate the 'id' parameter
-        if (!isValidClientId(id)) {
-            return ResponseEntity.badRequest().build(); // Invalid 'id' parameter
-        }
+    public ResponseEntity<Client> updateClient(@PathVariable Long id, @RequestBody Client clientToUpdate) {
+        // Check if the client with the given id exists in the database
+        if (!doesClientExist(id)) { return ResponseEntity.notFound().build(); } // Client with the given id not found
 
-        // Check if the client with the given ID exists in the database
-        if (!doesClientExist(id)) {
-            return ResponseEntity.notFound().build(); // Client with the given ID not found
-        }
-
-        // Validate the 'updatedClient' object
-        if (!isValidUpdatedClient(id, updatedClient)) {
-            return ResponseEntity.badRequest().build(); // Invalid 'updatedClient' object or ID mismatch
+        // Validate the 'clientToUpdate' object
+        if (!isValidUpdatedClient(id, clientToUpdate)) {
+            return ResponseEntity.badRequest().build(); // Invalid 'clientToUpdate' object or ID mismatch
         }
 
         // Set the correct ID for the updated client
-        updatedClient.setId(id);
+        clientToUpdate.setId(id);
 
         // Save the updated client
-        Client savedClient = clientRepository.save(updatedClient);
+        Client savedClient = clientRepository.save(clientToUpdate);
 
         return ResponseEntity.ok(savedClient); // Return the updated client in the response
     }
 
+    // Validation methods
     @DeleteMapping("/get/{id}")
-    public void deleteClient(@PathVariable Long id) {
+    public ResponseEntity<String> deleteClient(@PathVariable Long id, @RequestBody Client clientToDelete) {
+        // Check if the client with the given id exists in the database
+        if (!doesClientExist(id)) {
+            return ResponseEntity.notFound().build(); // Client with the given id not found
+        }
+
+        // Validate the 'clientToDelete' object
+        ResponseEntity<String> clientValidationResponse = isValidClientToDelete(id, clientToDelete);
+        if (clientValidationResponse != null) {
+            return clientValidationResponse; // Invalid 'clientToDelete' object or id mismatch
+        }
+
+        // Perform the delete operation
         clientRepository.deleteById(id);
+
+        return ResponseEntity.ok("Client deleted successfully");
     }
 
-    // Validation methods
     // Validate client id parameters
     private boolean isValidClientId(Long id) {
         return id != null && id > 0;
     }
+    // Check if the client with the given id exists in the database (calls isValidClientId)
 
-    // Check if the client with the given id exists in the database
     private boolean doesClientExist(Long id) {
+        // Validate id as not null and > 0
+        if(!isValidClientId(id)) {
+            return false;
+        }
+
         return clientRepository.findById(id).isPresent();
     }
-
     // Validate the 'updatedClient' object
+
     private boolean isValidUpdatedClient(Long id, Client updatedClient) {
         return updatedClient != null && updatedClient.getId() != null && updatedClient.getId().equals(id);
+    }
+
+    // Validation method for 'clientToDelete' object
+    private ResponseEntity<String> isValidClientToDelete(Long id, Client clientToDelete) {
+        if (clientToDelete == null || !id.equals(clientToDelete.getId())) {
+            return ResponseEntity.badRequest().body("Client ID mismatch");
+        }
+
+        // If all validations pass, return null to indicate success
+        return null;
     }
 }
