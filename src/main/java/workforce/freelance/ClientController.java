@@ -36,15 +36,17 @@ public class ClientController {
 
     @PutMapping("/get/{id}")
     public ResponseEntity<Client> updateClient(@PathVariable Long id, @RequestBody Client clientToUpdate) {
-        // Check if the client with the given id exists in the database
-        if (!doesClientExist(id)) { return ResponseEntity.notFound().build(); } // Client with the given id not found
+        // Check if the Client with the given id exists in the database
+        if (!doesClientExist(id)) {
+            return ResponseEntity.notFound().build();
+        } // Client with the given id not found
 
         // Validate the 'clientToUpdate' object
         if (!isValidUpdatedClient(id, clientToUpdate)) {
             return ResponseEntity.badRequest().build(); // Invalid 'clientToUpdate' object or ID mismatch
         }
 
-        // Set the correct ID for the updated client
+        // Ensure the correct ID is set for the updated Client
         clientToUpdate.setId(id);
 
         // Save the updated client

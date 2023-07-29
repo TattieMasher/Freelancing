@@ -36,6 +36,8 @@ public class UserController {
 
     @PutMapping("/get/{id}")
     public User updateUser(@PathVariable Long id, @RequestBody User updatedUser) {
+        // Check if the User with the given id exists in the database
+
         updatedUser.setId(id); // Ensure the correct ID is set for the updated User
         return userRepository.save(updatedUser);
     }

@@ -20,8 +20,13 @@ public class User {
 
     @Column(name = "verified")
     private boolean verified;
+
     @Column(name = "type")
     private int userType;
+
+    @OneToOne
+    @JoinColumn(name = "organisation")
+    private Client client;
 
     public User() {};
 

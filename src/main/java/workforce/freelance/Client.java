@@ -14,7 +14,7 @@ public class Client {
     private Long primaryUserId;
 
     // TODO: CHECK ME
-    @OneToOne
+    @OneToOne(mappedBy = "client")
     @JoinColumn(insertable=false, updatable=false, name = "primary_user", referencedColumnName = "id")
     private User primaryUser;
 

@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7385b9b2-a597-4163-8543-931f1614cca8" name="Changes" comment="Cleaned up updateClient and added a deleteClient method">
+    <list default="true" id="7385b9b2-a597-4163-8543-931f1614cca8" name="Changes" comment="Changed id field in User to Long (like that of Client).&#10;&#10;Removed the methods to update individual User fields in UserController and added validation methods. Will adopt a full-JSON request approach, like that in ClientController.&#10;&#10;Also moved some out-of-place comments">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/workforce/freelance/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/workforce/freelance/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/workforce/freelance/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/workforce/freelance/ClientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/workforce/freelance/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/workforce/freelance/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/workforce/freelance/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/workforce/freelance/UserController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -170,7 +172,15 @@
       <option name="project" value="LOCAL" />
       <updated>1690591540391</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Changed id field in User to Long (like that of Client).&#10;&#10;Removed the methods to update individual User fields in UserController and added validation methods. Will adopt a full-JSON request approach, like that in ClientController.&#10;&#10;Also moved some out-of-place comments">
+      <option name="closed" value="true" />
+      <created>1690592773476</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1690592773476</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -195,7 +205,8 @@
     <MESSAGE value="In UserController, made the request URIs more readable and sorted the getUserById (public accessor now). Also added an updateUser() method to take a full user JSON and save it to the database.&#10;&#10;In ClientController, I just made the URIs better, by specifying &quot;/get/&quot; in Client-specific requests." />
     <MESSAGE value="Added some validation methods to ClientController and implemented them in updateClient()." />
     <MESSAGE value="Cleaned up updateClient and added a deleteClient method" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cleaned up updateClient and added a deleteClient method" />
+    <MESSAGE value="Changed id field in User to Long (like that of Client).&#10;&#10;Removed the methods to update individual User fields in UserController and added validation methods. Will adopt a full-JSON request approach, like that in ClientController.&#10;&#10;Also moved some out-of-place comments" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed id field in User to Long (like that of Client).&#10;&#10;Removed the methods to update individual User fields in UserController and added validation methods. Will adopt a full-JSON request approach, like that in ClientController.&#10;&#10;Also moved some out-of-place comments" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
