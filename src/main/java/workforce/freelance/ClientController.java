@@ -36,21 +36,39 @@ public class ClientController {
 
     @PutMapping("/get/{id}")
     public ResponseEntity<Client> updateClient(@PathVariable Long id, @RequestBody Client clientToUpdate) {
-        // Check if the Client with the given id exists in the database
-        if (!doesClientExist(id)) {
-            return ResponseEntity.notFound().build();
-        } // Client with the given id not found
-
-        // Validate the 'clientToUpdate' object
-        if (!isValidUpdatedClient(id, clientToUpdate)) {
-            return ResponseEntity.badRequest().build(); // Invalid 'clientToUpdate' object or ID mismatch
+        // Validate supplied id as != null and > 0
+        if (!isValidClientId(id)) {
+            return ResponseEntity.notFound().build();   // Invalid client id given
         }
 
-        // Ensure the correct ID is set for the updated Client
-        clientToUpdate.setId(id);
+        // Check if the Client with the given id exists in the database
+        Optional<Client> existingClientOptional = clientRepository.findById(id);
+        if (existingClientOptional.isEmpty()) {
+            return ResponseEntity.notFound().build(); // Client with the given id not found
+        }
+
+        // Validate the 'clientToUpdate' object fields
+        if (!isValidUpdatedClient(id, clientToUpdate)) {
+            return ResponseEntity.badRequest().build(); // Invalid 'clientToUpdate' object or id mismatch
+        }
+
+        // Get the existing Client entity from the optional
+        Client existingClient = existingClientOptional.get();
+
+        // Update the fields of the existing Client entity with the data from clientToUpdate
+        existingClient.setName(clientToUpdate.getName());
+
+        // Check if the primaryUser field is set in the clientToUpdate
+        if (clientToUpdate.getPrimaryUser() != null) {
+            // Set the primaryUser for the existing Client entity and synchronize the User entity's client field
+            existingClient.setPrimaryUser(clientToUpdate.getPrimaryUser());
+        } else {
+            // If the primaryUser is null in clientToUpdate, set it to null in the existing Client entity as well
+            existingClient.setPrimaryUser(null);
+        }
 
         // Save the updated client
-        Client savedClient = clientRepository.save(clientToUpdate);
+        Client savedClient = clientRepository.save(existingClient);
 
         return ResponseEntity.ok(savedClient); // Return the updated client in the response
     }
