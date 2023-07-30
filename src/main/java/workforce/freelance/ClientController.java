@@ -35,10 +35,10 @@ public class ClientController {
     }
 
     @PutMapping("/get/{id}")
-    public ResponseEntity<Client> updateClient(@PathVariable Long id, @RequestBody Client clientToUpdate) {
+    public ResponseEntity<?> updateClient(@PathVariable Long id, @RequestBody Client clientToUpdate) {
         // Validate supplied id as != null and > 0
         if (!isValidClientId(id)) {
-            return ResponseEntity.notFound().build();   // Invalid client id given
+            return ResponseEntity.badRequest().body("Invalid client ID given");   // Invalid client id given
         }
 
         // Check if the Client with the given id exists in the database
@@ -48,8 +48,9 @@ public class ClientController {
         }
 
         // Validate the 'clientToUpdate' object fields
-        if (!isValidUpdatedClient(id, clientToUpdate)) {
-            return ResponseEntity.badRequest().build(); // Invalid 'clientToUpdate' object or id mismatch
+        boolean isValidClient = validateClientOperation(id, clientToUpdate, true);
+        if (!isValidClient) {
+            return ResponseEntity.badRequest().body("Invalid Client object supplied"); // Invalid 'clientToUpdate' object or id mismatch
         }
 
         // Get the existing Client entity from the optional
@@ -75,15 +76,20 @@ public class ClientController {
 
     @DeleteMapping("/get/{id}")
     public ResponseEntity<String> deleteClient(@PathVariable Long id, @RequestBody Client clientToDelete) {
+        // Validate supplied id as != null and > 0
+        if (!isValidClientId(id)) {
+            return ResponseEntity.badRequest().body("Invalid client ID given"); // Invalid client id given
+        }
+
         // Check if the client with the given id exists in the database
         if (!doesClientExist(id)) {
             return ResponseEntity.notFound().build(); // Client with the given id not found
         }
 
-        // Validate the 'clientToDelete' object
-        ResponseEntity<String> clientValidationResponse = isValidClientToDelete(id, clientToDelete);
-        if (clientValidationResponse != null) {
-            return clientValidationResponse; // Invalid 'clientToDelete' object or id mismatch
+        // Validate the 'clientToDelete' object fields
+        boolean isValidClientToDelete = validateClientOperation(id, clientToDelete, true);
+        if (!isValidClientToDelete) {
+            return ResponseEntity.badRequest().body("Invalid 'clientToDelete' object or ID mismatch");
         }
 
         // Perform the delete operation
@@ -92,9 +98,9 @@ public class ClientController {
         return ResponseEntity.ok("Client deleted successfully");
     }
 
-    // Validation methods
 
-    // Validate client id parameter
+    // Validation methods
+    // Validate client id parameter as != null and > 0
     private boolean isValidClientId(Long id) {
         return id != null && id > 0;
     }
@@ -109,18 +115,13 @@ public class ClientController {
         return clientRepository.findById(id).isPresent();
     }
 
-    // Validate the 'updatedClient' object, cannot be null and must have an existing id in database
-    private boolean isValidUpdatedClient(Long id, Client updatedClient) {
-        return updatedClient != null && updatedClient.getId() != null && updatedClient.getId().equals(id);
-    }
-
-    // Validation method for 'clientToDelete' object
-    private ResponseEntity<String> isValidClientToDelete(Long id, Client clientToDelete) {
-        if (clientToDelete == null || !id.equals(clientToDelete.getId())) {
-            return ResponseEntity.badRequest().body("Client ID mismatch");
+    // Validate a Client object operation. clientId must be > 0 and != null. Supplied client object must not be null and, if updating a client record, the db must contain the same record supplied.
+    private boolean validateClientOperation(Long clientId, Client clientToUpdate, boolean updateExistingClient) {
+        // If supplied client is to be updated, or deleted, rather than created
+        if (updateExistingClient) {
+            return isValidClientId(clientId) && clientToUpdate != null && clientToUpdate.getId().equals(clientId);
+        } else {
+            return isValidClientId(clientId) && clientToUpdate != null;
         }
-
-        // If all validations pass, return null to indicate success
-        return null;
     }
 }

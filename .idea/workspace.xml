@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7385b9b2-a597-4163-8543-931f1614cca8" name="Changes" comment="Tests to updateClient failed. Amended the relationship between Clients and Users, but still currently failing. Issue seems to be due to synchronisation with the primaryUser field within Client.">
+    <list default="true" id="7385b9b2-a597-4163-8543-931f1614cca8" name="Changes" comment="Fixed updateClient! Built a Client object from an Optional&lt;Client&gt;, populated by findById(). This Client is then amended with the data supplied to the method and returned, to indicate a successful operation (HTTP code 200).">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/workforce/freelance/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/workforce/freelance/ClientController.java" afterDir="false" />
     </list>
@@ -24,11 +24,11 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="UPDATE_TYPE" value="REBASE" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;
   }
-}]]></component>
+}</component>
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
@@ -46,19 +46,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "/home/alex/IdeaProjects/Freelancing",
-    "onboarding.tips.debug.path": "/home/alex/IdeaProjects/Freelancing/src/main/java/org/example/Main.java",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/alex/IdeaProjects/Freelancing&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;/home/alex/IdeaProjects/Freelancing/src/main/java/org/example/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
@@ -185,7 +185,15 @@
       <option name="project" value="LOCAL" />
       <updated>1690594704655</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Fixed updateClient! Built a Client object from an Optional&lt;Client&gt;, populated by findById(). This Client is then amended with the data supplied to the method and returned, to indicate a successful operation (HTTP code 200).">
+      <option name="closed" value="true" />
+      <created>1690756636081</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1690756636081</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -212,7 +220,8 @@
     <MESSAGE value="Cleaned up updateClient and added a deleteClient method" />
     <MESSAGE value="Changed id field in User to Long (like that of Client).&#10;&#10;Removed the methods to update individual User fields in UserController and added validation methods. Will adopt a full-JSON request approach, like that in ClientController.&#10;&#10;Also moved some out-of-place comments" />
     <MESSAGE value="Tests to updateClient failed. Amended the relationship between Clients and Users, but still currently failing. Issue seems to be due to synchronisation with the primaryUser field within Client." />
-    <option name="LAST_COMMIT_MESSAGE" value="Tests to updateClient failed. Amended the relationship between Clients and Users, but still currently failing. Issue seems to be due to synchronisation with the primaryUser field within Client." />
+    <MESSAGE value="Fixed updateClient! Built a Client object from an Optional&lt;Client&gt;, populated by findById(). This Client is then amended with the data supplied to the method and returned, to indicate a successful operation (HTTP code 200)." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed updateClient! Built a Client object from an Optional&lt;Client&gt;, populated by findById(). This Client is then amended with the data supplied to the method and returned, to indicate a successful operation (HTTP code 200)." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
