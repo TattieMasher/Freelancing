@@ -30,15 +30,22 @@ public class ClientController {
     }
 
     @PostMapping
-    public Client createClient(@RequestBody Client newClient) {
-        return clientRepository.save(newClient);
+    public ResponseEntity<?> createClient(@RequestBody Client newClient) {
+        // Validate the 'newClient' object fields for creating a new client
+        boolean isValidOperation = validateClientOperation(newClient.getId(), newClient, false);
+        if (!isValidOperation) {
+            return ResponseEntity.badRequest().body("Client creation failed: Invalid client object supplied");
+        }
+
+        Client savedClient = clientRepository.save(newClient);
+        return ResponseEntity.ok(savedClient); // Return the created client in the response
     }
 
     @PutMapping("/get/{id}")
     public ResponseEntity<?> updateClient(@PathVariable Long id, @RequestBody Client clientToUpdate) {
         // Validate supplied id as != null and > 0
         if (!isValidClientId(id)) {
-            return ResponseEntity.badRequest().body("Invalid client ID given");   // Invalid client id given
+            return ResponseEntity.badRequest().body("Client update failed: Invalid client ID given");   // Invalid client id given
         }
 
         // Check if the Client with the given id exists in the database
@@ -50,7 +57,7 @@ public class ClientController {
         // Validate the 'clientToUpdate' object fields
         boolean isValidClient = validateClientOperation(id, clientToUpdate, true);
         if (!isValidClient) {
-            return ResponseEntity.badRequest().body("Invalid Client object supplied"); // Invalid 'clientToUpdate' object or id mismatch
+            return ResponseEntity.badRequest().body("Client update failed: Invalid Client object supplied"); // Invalid 'clientToUpdate' object or id mismatch
         }
 
         // Get the existing Client entity from the optional
@@ -86,9 +93,9 @@ public class ClientController {
             return ResponseEntity.notFound().build(); // Client with the given id not found
         }
 
-        // Validate the 'clientToDelete' object fields
-        boolean isValidClientToDelete = validateClientOperation(id, clientToDelete, true);
-        if (!isValidClientToDelete) {
+        // Validate the 'clientToDelete' object
+        boolean isValidOperation = validateClientOperation(id, clientToDelete, true);
+        if (!isValidOperation) {
             return ResponseEntity.badRequest().body("Invalid 'clientToDelete' object or ID mismatch");
         }
 

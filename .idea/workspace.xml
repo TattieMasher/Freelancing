@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7385b9b2-a597-4163-8543-931f1614cca8" name="Changes" comment="Fixed updateClient! Built a Client object from an Optional&lt;Client&gt;, populated by findById(). This Client is then amended with the data supplied to the method and returned, to indicate a successful operation (HTTP code 200).">
+    <list default="true" id="7385b9b2-a597-4163-8543-931f1614cca8" name="Changes" comment="Added meaningful ResponseEntity messages to updateClient. Combined Client object validation methods into validateClientOperation(), which takes a boolean denoting whether nor not to check the database for a client matching the one supplied. Implemented this into updateClient and deleteClient().">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/workforce/freelance/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/workforce/freelance/ClientController.java" afterDir="false" />
     </list>
@@ -193,7 +193,15 @@
       <option name="project" value="LOCAL" />
       <updated>1690756636081</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Added meaningful ResponseEntity messages to updateClient. Combined Client object validation methods into validateClientOperation(), which takes a boolean denoting whether nor not to check the database for a client matching the one supplied. Implemented this into updateClient and deleteClient().">
+      <option name="closed" value="true" />
+      <created>1690759221656</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1690759221656</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -221,7 +229,8 @@
     <MESSAGE value="Changed id field in User to Long (like that of Client).&#10;&#10;Removed the methods to update individual User fields in UserController and added validation methods. Will adopt a full-JSON request approach, like that in ClientController.&#10;&#10;Also moved some out-of-place comments" />
     <MESSAGE value="Tests to updateClient failed. Amended the relationship between Clients and Users, but still currently failing. Issue seems to be due to synchronisation with the primaryUser field within Client." />
     <MESSAGE value="Fixed updateClient! Built a Client object from an Optional&lt;Client&gt;, populated by findById(). This Client is then amended with the data supplied to the method and returned, to indicate a successful operation (HTTP code 200)." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed updateClient! Built a Client object from an Optional&lt;Client&gt;, populated by findById(). This Client is then amended with the data supplied to the method and returned, to indicate a successful operation (HTTP code 200)." />
+    <MESSAGE value="Added meaningful ResponseEntity messages to updateClient. Combined Client object validation methods into validateClientOperation(), which takes a boolean denoting whether nor not to check the database for a client matching the one supplied. Implemented this into updateClient and deleteClient()." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added meaningful ResponseEntity messages to updateClient. Combined Client object validation methods into validateClientOperation(), which takes a boolean denoting whether nor not to check the database for a client matching the one supplied. Implemented this into updateClient and deleteClient()." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
