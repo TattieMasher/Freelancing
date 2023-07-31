@@ -25,14 +25,14 @@ public class ClientController {
 
     // Get a client
     @GetMapping("/get/{id}")
-    public ResponseEntity<?> getClientById(@PathVariable Long clientId) {
-        if (isValidClientId(clientId)) {
-            Optional<Client> clientOptional = clientRepository.findById(clientId);
+    public ResponseEntity<?> getClientById(@PathVariable Long id) {
+        if (isValidClientId(id)) {
+            Optional<Client> clientOptional = clientRepository.findById(id);
 
             if (clientOptional.isPresent()) {
                 return ResponseEntity.ok(clientOptional.get());
             } else {
-                return ResponseEntity.badRequest().body("Client retrieval failed: Client with ID " + clientId + "not found");
+                return ResponseEntity.badRequest().body("Client retrieval failed: Client with ID " + id + " not found");
             }
         }
 

@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7385b9b2-a597-4163-8543-931f1614cca8" name="Changes" comment="Implemented the new validateClientOperation() method into createClient() and deleteClient(). &#10;&#10;Added meaningful responses, but still need to test. Also need to write responses for the ResponseEntity.build() returns.">
+    <list default="true" id="7385b9b2-a597-4163-8543-931f1614cca8" name="Changes" comment="Added a validateUserOperation() method, to match that of validateClientOperation(). Restructured the getClient/UserById methods.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/workforce/freelance/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/workforce/freelance/ClientController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/workforce/freelance/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/workforce/freelance/UserController.java" afterDir="false" />
@@ -210,7 +210,15 @@
       <option name="project" value="LOCAL" />
       <updated>1690759928617</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Added a validateUserOperation() method, to match that of validateClientOperation(). Restructured the getClient/UserById methods.">
+      <option name="closed" value="true" />
+      <created>1690836326079</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1690836326079</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -240,7 +248,8 @@
     <MESSAGE value="Fixed updateClient! Built a Client object from an Optional&lt;Client&gt;, populated by findById(). This Client is then amended with the data supplied to the method and returned, to indicate a successful operation (HTTP code 200)." />
     <MESSAGE value="Added meaningful ResponseEntity messages to updateClient. Combined Client object validation methods into validateClientOperation(), which takes a boolean denoting whether nor not to check the database for a client matching the one supplied. Implemented this into updateClient and deleteClient()." />
     <MESSAGE value="Implemented the new validateClientOperation() method into createClient() and deleteClient(). &#10;&#10;Added meaningful responses, but still need to test. Also need to write responses for the ResponseEntity.build() returns." />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented the new validateClientOperation() method into createClient() and deleteClient(). &#10;&#10;Added meaningful responses, but still need to test. Also need to write responses for the ResponseEntity.build() returns." />
+    <MESSAGE value="Added a validateUserOperation() method, to match that of validateClientOperation(). Restructured the getClient/UserById methods." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added a validateUserOperation() method, to match that of validateClientOperation(). Restructured the getClient/UserById methods." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

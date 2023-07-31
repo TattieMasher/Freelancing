@@ -24,14 +24,14 @@ public class UserController {
     }
 
     @GetMapping("/get/{id}")
-    public ResponseEntity<?> getUserById(@PathVariable Long userId) {
-        if (isValidUserId(userId)) {
-            Optional<User> userOptional = userRepository.findById(userId);
+    public ResponseEntity<?> getUserById(@PathVariable Long id) {
+        if (isValidUserId(id)) {
+            Optional<User> userOptional = userRepository.findById(id);
 
             if (userOptional.isPresent()) {
                 return ResponseEntity.ok(userOptional.get());
             } else {
-                return ResponseEntity.badRequest().body("User retrieval failed: User with ID " + userId + "not found");
+                return ResponseEntity.badRequest().body("User retrieval failed: User with ID " + id + " not found");
             }
         } else {
             return ResponseEntity.badRequest().body("User retrieval failed: Invalid user ID supplied");
@@ -76,7 +76,7 @@ public class UserController {
         return null;
     }
 
-    // Validate a Client object operation. clientId must be > 0 and != null. Supplied client object must not be null and, if updating a client record, the db must contain the same record supplied.
+    // Validate a user object operation. clientId must be > 0 and != null. Supplied User object must not be null and, if updating a User record, the db must contain the same record supplied.
     private boolean validateUserOperation(Long userId, User userToUpdate, boolean updateExistingUser) {
         // If supplied client is to be updated, or deleted, rather than created
         if (updateExistingUser) {
