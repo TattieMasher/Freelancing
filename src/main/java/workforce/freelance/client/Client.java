@@ -1,6 +1,7 @@
-package workforce.freelance;
+package workforce.freelance.client;
 
 import jakarta.persistence.*;
+import workforce.freelance.user.User;
 
 @Entity
 @Table(name = "Client")

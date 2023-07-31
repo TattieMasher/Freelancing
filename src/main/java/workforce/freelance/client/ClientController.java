@@ -1,4 +1,4 @@
-package workforce.freelance;
+package workforce.freelance.client;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

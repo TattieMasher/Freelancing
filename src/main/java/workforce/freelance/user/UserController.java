@@ -1,7 +1,8 @@
-package workforce.freelance;
+package workforce.freelance.user;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import workforce.freelance.client.Client;
 
 import java.util.List;
 import java.util.Optional;

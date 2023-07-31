@@ -1,4 +1,4 @@
-package workforce.freelance;
+package workforce.freelance.user;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

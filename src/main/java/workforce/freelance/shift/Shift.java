@@ -1,7 +1,4 @@
-package workforce.freelance;
-
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
+package workforce.freelance.shift;
 
 import java.time.LocalDateTime;
 import java.util.List;
