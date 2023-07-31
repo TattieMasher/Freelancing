@@ -24,13 +24,17 @@ public class UserController {
     }
 
     @GetMapping("/get/{id}")
-    public User getUserById(@PathVariable int id) {
-        Optional<Object> userOptional = userRepository.findById(id);
+    public ResponseEntity<?> getUserById(@PathVariable Long userId) {
+        if (isValidUserId(userId)) {
+            Optional<User> userOptional = userRepository.findById(userId);
 
-        if (userOptional.isPresent()) {
-            return (User) userOptional.get();
+            if (userOptional.isPresent()) {
+                return ResponseEntity.ok(userOptional.get());
+            } else {
+                return ResponseEntity.badRequest().body("User retrieval failed: User with ID " + userId + "not found");
+            }
         } else {
-            throw new IllegalArgumentException("User not found with ID: " + id);
+            return ResponseEntity.badRequest().body("User retrieval failed: Invalid user ID supplied");
         }
     }
 
@@ -43,14 +47,14 @@ public class UserController {
     }
 
     // Validate user id parameter
-    private boolean isValidId(Long id) {
+    private boolean isValidUserId(Long id) {
         return id != null && id > 0;
     }
 
     // Check if the user with the given id exists in the database (calls isValidId)
     private boolean doesUserExist(Long id) {
         // Validate id as not null and > 0
-        if(!isValidId(id)) {
+        if(!isValidUserId(id)) {
             return false;
         }
 
@@ -70,5 +74,15 @@ public class UserController {
 
         // If all validations pass, return null to indicate success
         return null;
+    }
+
+    // Validate a Client object operation. clientId must be > 0 and != null. Supplied client object must not be null and, if updating a client record, the db must contain the same record supplied.
+    private boolean validateUserOperation(Long userId, User userToUpdate, boolean updateExistingUser) {
+        // If supplied client is to be updated, or deleted, rather than created
+        if (updateExistingUser) {
+            return isValidUserId(userId) && userToUpdate != null && userToUpdate.getId().equals(userId);
+        } else {
+            return isValidUserId(userId) && userToUpdate != null;
+        }
     }
 }
