@@ -14,7 +14,7 @@ import java.util.Optional;
 public class ClientController {
     private final ClientRepository clientRepository;
 
-    public ClientController(ClientRepository clientRepository) {
+    public ClientController (ClientRepository clientRepository) {
         this.clientRepository = clientRepository;
     }
 

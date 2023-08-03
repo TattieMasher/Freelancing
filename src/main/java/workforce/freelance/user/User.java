@@ -25,7 +25,7 @@ public class User {
     @Column(name = "type")
     private int userType;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "organisation")
     private Client client;
 
