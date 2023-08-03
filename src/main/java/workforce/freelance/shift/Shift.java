@@ -1,40 +1,80 @@
 package workforce.freelance.shift;
 
+import jakarta.persistence.*;
+import workforce.freelance.client.Client;
+import workforce.freelance.user.User;
+
+import java.math.BigDecimal;
+import java.time.Duration;
 import java.time.LocalDateTime;
-import java.util.List;
 
+@Entity
+@Table(name = "shift")
 public class Shift implements Comparable<Shift> {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private LocalDateTime startDate;
-    private LocalDateTime endDate;
-    int rateInPennies;
-    float rate; // TODO: Use BigDecimal
-    private List<String> requiredSkills;
 
+    @Column(name = "client_id", nullable = false)
     private int clientId;
-    private String clientName;
 
-    private int adminId;
-    private String adminName;
-    private int workerId;
-    private String workerName;
+    @Column(name = "shift_admin_id")
+    private Integer adminId; // Integer wrapper to allow for null values
+
+    @Column(name = "worker_id")
+    private Integer workerId; // Integer wrapper to allow for null values
+
+    @Column(name = "start", nullable = false)
+    private LocalDateTime startDate;
+
+    @Column(name = "end", nullable = false)
+    private LocalDateTime endDate;
+
+    private Duration duration;
+
+    @Column(name = "rate", nullable = false, precision = 10, scale = 2)
+    private BigDecimal rate;
+
+    //  private List<String> requiredSkills;        TODO: Figure out how I want to use this
+
+    private Client client;
+
+    private User admin;
+    private int worker;
+
+    @Column(nullable = false, precision = 10, scale = 2)
+    private BigDecimal totalAmountPaid; // Total amount paid in pounds and pence
 
     public Shift() {
     }
 
-    // Constructors with all parameters
-    public Shift(LocalDateTime startDate, LocalDateTime endDate, int rateInPennies, float rate, List<String> requiredSkills, int clientId, String clientName, int adminId, String adminName, int workerId, String workerName) {
+    public Shift(int id, int clientId, LocalDateTime startDate, LocalDateTime endDate, BigDecimal rate, Client client) {
+        this.id = id;
+        this.clientId = clientId;
         this.startDate = startDate;
         this.endDate = endDate;
-        this.rateInPennies = rateInPennies;
         this.rate = rate;
-        this.requiredSkills = requiredSkills;
-        this.clientId = clientId;
-        this.clientName = clientName;
-        this.adminId = adminId;
-        this.adminName = adminName;
-        this.workerId = workerId;
-        this.workerName = workerName;
+        this.client = client;
+
+        // Calculate the duration of the shift
+        calculateShiftDuration();
+
+        // Calculate the total amount paid for a shift
+        calculateTotalAmountPaid();
+    }
+
+    // Calculate and set the duration of this Shift object (TODO: sort out time unit)
+    private void calculateShiftDuration() {
+        duration = Duration.between(startDate, endDate);
+    }
+
+    // Calculate the total £ value of a shift, based on the hourly rate and time of a shift
+    private void calculateTotalAmountPaid() {
+        // Convert the duration to hours (get seconds and divide by 3600)
+        long durationInHours = duration.getSeconds() / 3600;
+
+        // Calculate the total amount paid: totalAmountPaid = rate * durationInHours
+        totalAmountPaid = rate.multiply(BigDecimal.valueOf(durationInHours));
     }
 
     public int getId() {
@@ -43,6 +83,30 @@ public class Shift implements Comparable<Shift> {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getClientId() {
+        return clientId;
+    }
+
+    public void setClientId(int clientId) {
+        this.clientId = clientId;
+    }
+
+    public Integer getAdminId() {
+        return adminId;
+    }
+
+    public void setAdminId(Integer adminId) {
+        this.adminId = adminId;
+    }
+
+    public Integer getWorkerId() {
+        return workerId;
+    }
+
+    public void setWorkerId(Integer workerId) {
+        this.workerId = workerId;
     }
 
     public LocalDateTime getStartDate() {
@@ -61,71 +125,55 @@ public class Shift implements Comparable<Shift> {
         this.endDate = endDate;
     }
 
-    public int getRateInPennies() {
-        return rateInPennies;
+    public Duration getDuration() {
+        return duration;
     }
 
-    public void setRateInPennies(int rateInPennies) {
-        this.rateInPennies = rateInPennies;
+    public void setDuration(Duration duration) {
+        this.duration = duration;
     }
 
-    // TODO: Change to BigDecimal later
-    public float getRate() {
+    public BigDecimal getRate() {
         return rate;
     }
 
-    public void setRate(float rate) {
+    public void setRate(BigDecimal rate) {
         this.rate = rate;
     }
 
-    public List<String> getRequiredSkills() {
-        return requiredSkills;
+    public Client getClient() {
+        return client;
     }
 
-    public void setRequiredSkills(List<String> requiredSkills) {
-        this.requiredSkills = requiredSkills;
+    public void setClient(Client client) {
+        this.client = client;
     }
 
-    public int getClientId() {
-        return clientId;
+    public User getAdmin() {
+        return admin;
     }
 
-    public String getClientName() {
-        return clientName;
+    public void setAdmin(User admin) {
+        this.admin = admin;
     }
 
-    public int getAdminId() {
-        return adminId;
+    public int getWorker() {
+        return worker;
     }
 
-    public void setAdminId(int adminId) {
-        this.adminId = adminId;
+    public void setWorker(int worker) {
+        this.worker = worker;
     }
 
-    public String getAdminName() {
-        return adminName;
+    public BigDecimal getTotalAmountPaid() {
+        return totalAmountPaid;
     }
 
-    public void setAdminName(String adminName) {
-        this.adminName = adminName;
+    public void setTotalAmountPaid(BigDecimal totalAmountPaid) {
+        this.totalAmountPaid = totalAmountPaid;
     }
 
-    public int getWorkerId() {
-        return workerId;
-    }
-
-    public void setWorkerId(int workerId) {
-        this.workerId = workerId;
-    }
-
-    public String getWorkerName() {
-        return workerName;
-    }
-
-    public void setWorkerName(String workerName) {
-        this.workerName = workerName;
-    }
-
+    // Compare Shift objects based on their start and end dates. If the same, compare IDs
     @Override
     public int compareTo(Shift other) {
         int startComparison = this.getStartDate().compareTo(other.getStartDate());
@@ -143,6 +191,4 @@ public class Shift implements Comparable<Shift> {
         // If both start and end values are the same, compare based on the id
         return Integer.compare(this.getId(), other.getId());
     }
-
-    // Other methods to implement
 }
