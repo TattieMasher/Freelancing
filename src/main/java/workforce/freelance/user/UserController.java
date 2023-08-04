@@ -62,7 +62,7 @@ public class UserController {
         return userRepository.findById(id).isPresent();
     }
 
-    // Validate the 'updatedClient' object
+    // Validate the 'updatedUser' object
     private boolean isValidUser(Long id, User updatedUser) {
         return updatedUser != null && updatedUser.getId() != null && updatedUser.getId().equals(id);
     }

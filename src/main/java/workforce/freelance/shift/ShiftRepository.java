@@ -9,6 +9,7 @@ import java.util.Optional;
 
 @Repository
 public interface ShiftRepository extends JpaRepository<Shift, Long> {
-    List<Shift> findAll(); // Query all clients
+    List<Shift> findAll(); // Query all shifts
     Optional<Shift> findById(Long id); //
+    List<Shift> findByWorkerId(Long id);
 }

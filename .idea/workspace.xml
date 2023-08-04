@@ -4,17 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7385b9b2-a597-4163-8543-931f1614cca8" name="Changes" comment="Created Shift entity class. Added methods to calculate the duration of a Shift and the amount paid for it. These methods are called within the constructor, too.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/workforce/freelance/shift/ShiftController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/workforce/freelance/shift/ShiftRepository.java" afterDir="false" />
+    <list default="true" id="7385b9b2-a597-4163-8543-931f1614cca8" name="Changes" comment="Kept hitTing extremely weird errors (should have tested my class earlier), so I've reacted my Shift class and it now runs... Will now re-implement the methods from my previous commit. Lesson learned...">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/workforce/freelance/client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/workforce/freelance/client/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/workforce/freelance/client/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/workforce/freelance/client/ClientController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/workforce/freelance/client/ClientRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/workforce/freelance/client/ClientRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/workforce/freelance/shift/Shift.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/workforce/freelance/shift/Shift.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/workforce/freelance/user/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/workforce/freelance/user/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/workforce/freelance/FreelanceApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/workforce/freelance/shift/ShiftController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/workforce/freelance/shift/ShiftController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/workforce/freelance/shift/ShiftRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/workforce/freelance/shift/ShiftRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/workforce/freelance/user/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/workforce/freelance/user/UserController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,6 +45,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 0
+}]]></component>
   <component name="ProjectId" id="2Sc63cC4ey8S9WiRwXpaoF74N4O" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -259,7 +257,15 @@
       <option name="project" value="LOCAL" />
       <updated>1691094208945</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Kept hitTing extremely weird errors (should have tested my class earlier), so I've reacted my Shift class and it now runs... Will now re-implement the methods from my previous commit. Lesson learned...">
+      <option name="closed" value="true" />
+      <created>1691098629431</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1691098629431</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -293,7 +299,8 @@
     <MESSAGE value="Renamed the id parameters in the getClient/UserById methods. In previous commit, I named them userId and clientId, but rolled back to simply id." />
     <MESSAGE value="Significantly restructured project, moving classes into appropriate packages." />
     <MESSAGE value="Created Shift entity class. Added methods to calculate the duration of a Shift and the amount paid for it. These methods are called within the constructor, too." />
-    <option name="LAST_COMMIT_MESSAGE" value="Created Shift entity class. Added methods to calculate the duration of a Shift and the amount paid for it. These methods are called within the constructor, too." />
+    <MESSAGE value="Kept hitTing extremely weird errors (should have tested my class earlier), so I've reacted my Shift class and it now runs... Will now re-implement the methods from my previous commit. Lesson learned..." />
+    <option name="LAST_COMMIT_MESSAGE" value="Kept hitTing extremely weird errors (should have tested my class earlier), so I've reacted my Shift class and it now runs... Will now re-implement the methods from my previous commit. Lesson learned..." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
