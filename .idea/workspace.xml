@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7385b9b2-a597-4163-8543-931f1614cca8" name="Changes" comment="Kept hitTing extremely weird errors (should have tested my class earlier), so I've reacted my Shift class and it now runs... Will now re-implement the methods from my previous commit. Lesson learned...">
+    <list default="true" id="7385b9b2-a597-4163-8543-931f1614cca8" name="Changes" comment="Implemented a filtering method to return Shifts filtered by their field values.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/workforce/freelance/shift/Shift.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/workforce/freelance/shift/Shift.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/workforce/freelance/shift/ShiftController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/workforce/freelance/shift/ShiftController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/workforce/freelance/shift/ShiftRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/workforce/freelance/shift/ShiftRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/workforce/freelance/user/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/workforce/freelance/user/UserController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,9 +44,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 0
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
   <component name="ProjectId" id="2Sc63cC4ey8S9WiRwXpaoF74N4O" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -265,7 +264,15 @@
       <option name="project" value="LOCAL" />
       <updated>1691098629431</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Added Shift methods (getters/setters), calculateShiftDuration() and calculateTotalAmountPaid(). Added ShiftRepository and ShiftController. Added methods to ShiftController: getAllShifts(), getShiftById() and validation methods (like those in the other controllers).">
+      <option name="closed" value="true" />
+      <created>1691188743383</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1691188743383</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -300,7 +307,9 @@
     <MESSAGE value="Significantly restructured project, moving classes into appropriate packages." />
     <MESSAGE value="Created Shift entity class. Added methods to calculate the duration of a Shift and the amount paid for it. These methods are called within the constructor, too." />
     <MESSAGE value="Kept hitTing extremely weird errors (should have tested my class earlier), so I've reacted my Shift class and it now runs... Will now re-implement the methods from my previous commit. Lesson learned..." />
-    <option name="LAST_COMMIT_MESSAGE" value="Kept hitTing extremely weird errors (should have tested my class earlier), so I've reacted my Shift class and it now runs... Will now re-implement the methods from my previous commit. Lesson learned..." />
+    <MESSAGE value="Added Shift methods (getters/setters), calculateShiftDuration() and calculateTotalAmountPaid(). Added ShiftRepository and ShiftController. Added methods to ShiftController: getAllShifts(), getShiftById() and validation methods (like those in the other controllers)." />
+    <MESSAGE value="Implemented a filtering method to return Shifts filtered by their field values." />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented a filtering method to return Shifts filtered by their field values." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
