@@ -44,7 +44,6 @@ public class Shift {
 
     // Constructors
     public Shift() {
-        System.out.println("Default constructor used");
     }
 
     public Shift(int id, Client client, User admin, User worker, LocalDateTime startDate, LocalDateTime endDate, BigDecimal rate, BigDecimal totalAmountPaid) {
@@ -56,13 +55,14 @@ public class Shift {
         this.endDate = endDate;
         this.rate = rate;
 
-        System.out.println("Parameter constructor used");
-
         // Calculate the duration of the shift
         calculateShiftDuration();
 
         // Calculate the total amount paid for a shift
         calculateTotalAmountPaid();
+
+        // TODO: Unify this.
+        // Calculate totalAmountPaid, if null or 0 in db
     }
 
     // Getters and setters

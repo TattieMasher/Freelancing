@@ -1,13 +1,10 @@
 package workforce.freelance.shift;
 
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import workforce.freelance.user.User;
 
-import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 
 /**
@@ -51,37 +48,6 @@ public class ShiftController {
         }
     }
 
-    @GetMapping("/getFiltered") // Dates MUST be formatted like {"startDate":"YYYY-MM-DDTHH:mm"} TODO: Use this method as the bones to create filter methods for other objects
-    public List<Shift> getFilteredShifts(@RequestBody Map<String, String> filters) {
-        LocalDateTime startDate = null; // Declare filters
-        LocalDateTime endDate = null;
-        Long workerId = null;
-        Long clientId = null;
-
-        // Parse filter values from the map parameter
-        if (filters.containsKey("startDate")) {
-            startDate = LocalDateTime.parse(filters.get("startDate"));
-        }
-        if (filters.containsKey("endDate")) {
-            endDate = LocalDateTime.parse(filters.get("endDate"));
-        }
-        if (filters.containsKey("workerId")) {
-            String workerIdStr = filters.get("workerId");
-            if (workerIdStr != null && !workerIdStr.isEmpty()) {
-                if ("null".equalsIgnoreCase(workerIdStr)) {
-                    workerId = null;
-                } else {
-                    workerId = Long.parseLong(workerIdStr);
-                }
-            }
-        }
-        if (filters.containsKey("clientId")) {
-            clientId = Long.parseLong(filters.get("clientId"));
-        }
-
-        // Call and return the Shift filtering query
-        return shiftRepository.findFilteredShifts(startDate, endDate, workerId, clientId);
-    }
 
     // Validate shift id parameter
     public boolean isValidId(Long id) {
