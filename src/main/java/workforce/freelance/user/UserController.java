@@ -97,7 +97,7 @@ public class UserController {
         User savedUser = userRepository.save(existingUser);
 
         return ResponseEntity.ok(savedUser); // Return the updated user in the response
-        }
+    }
 
     // Validate user id parameter
     private boolean isValidUserId(Long id) {
