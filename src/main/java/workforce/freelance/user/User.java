@@ -1,6 +1,8 @@
 package workforce.freelance.user;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import workforce.freelance.client.Client;
 
 @Entity
@@ -27,6 +29,7 @@ public class User {
 
     @ManyToOne
     @JoinColumn(name = "organisation")
+    @JsonIgnore
     private Client client;
 
     public User() {};

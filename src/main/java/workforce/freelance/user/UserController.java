@@ -59,7 +59,7 @@ public class UserController {
         // Validate the 'updatedUser' email address (using regex)- TODO: Move this into the validateUserOperation later
         boolean isValidEmail = User.isValidEmailAddress(updatedUser.getEmail());
         if (!isValidEmail) {
-            return ResponseEntity.badRequest().body("User update failed: Invalid User object supplied");
+            return ResponseEntity.badRequest().body("User update failed: Invalid email address supplied");
         }
 
         // Validate the 'updatedUser' object fields (set updateExistingUser to true, because this is an update operation)
