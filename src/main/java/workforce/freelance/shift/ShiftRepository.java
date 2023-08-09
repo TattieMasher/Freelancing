@@ -12,8 +12,8 @@ import java.util.Optional;
 @Repository
 public interface ShiftRepository extends JpaRepository<Shift, Long> {
     List<Shift> findAll(); // Query all shifts
-    Optional<Shift> findById(Long id); //
-    List<Shift> findByWorkerId(Long id);
+    Optional<Shift> findById(Long id); // Query shift by id
+    List<Shift> findByWorkerId(Long id); // Query shift by worker id
 
     @Query("SELECT s FROM Shift s " +
             "WHERE (:startDate IS NULL OR s.startDate >= :startDate) " +

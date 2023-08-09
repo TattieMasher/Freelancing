@@ -1,8 +1,9 @@
 package workforce.freelance.user;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import workforce.freelance.client.Client;
+import workforce.freelance.client.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -13,6 +14,9 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/api/users")
 public class UserController {
+    @Autowired
+    private ClientRepository clientRepository;
+
     private final UserRepository userRepository;
 
     public UserController(UserRepository userRepository) {
@@ -40,12 +44,60 @@ public class UserController {
     }
 
     @PutMapping("/get/{id}")
-    public User updateUser(@PathVariable Long id, @RequestBody User updatedUser) {
-        // Check if the User with the given id exists in the database
+    public ResponseEntity<?> updateUser(@PathVariable Long id, @RequestBody User updatedUser) {
+        // Validate supplied id as != null and > 0
+        if (!isValidUserId(id)) {
+            return ResponseEntity.badRequest().body("User update failed: Invalid user ID given");
+        }
 
-        updatedUser.setId(id); // Ensure the correct ID is set for the updated User
-        return userRepository.save(updatedUser);
-    }
+        // Check if the User with the given id exists in the database
+        Optional<User> existingUserOptional = userRepository.findById(id);
+        if (existingUserOptional.isEmpty()) {
+            return ResponseEntity.notFound().build(); // User with the given id not found
+        }
+
+        // Validate the 'updatedUser' email address (using regex)- TODO: Move this into the validateUserOperation later
+        boolean isValidEmail = User.isValidEmailAddress(updatedUser.getEmail());
+        if (!isValidEmail) {
+            return ResponseEntity.badRequest().body("User update failed: Invalid User object supplied");
+        }
+
+        // Validate the 'updatedUser' object fields (set updateExistingUser to true, because this is an update operation)
+        boolean isValidUser = validateUserOperation(id, updatedUser, true);
+        if (!isValidUser) {
+            return ResponseEntity.badRequest().body("User update failed: Invalid User object supplied");
+        }
+
+        // Get the existing User entity from the optional
+        User existingUser = existingUserOptional.get();
+
+        // Update the fields of the existing User entity with the data from updatedUser
+        existingUser.setfName(updatedUser.getfName());
+        existingUser.setsName(updatedUser.getsName());
+        existingUser.setEmail(updatedUser.getEmail());
+        existingUser.setVerified(updatedUser.isVerified());
+        existingUser.setUserType(updatedUser.getUserType());
+
+        // Check if the client field is set in the updatedUser
+        if (updatedUser.getClient() != null) {
+            // Fetch the corresponding Client entity from the database using its ID
+            Optional<Client> existingClientOptional = clientRepository.findById(updatedUser.getClient().getId());
+            if (existingClientOptional.isPresent()) {
+                Client existingClient = existingClientOptional.get();
+                existingUser.setClient(existingClient);
+            } else {
+                return ResponseEntity.badRequest().body("User update failed: Invalid Client ID supplied"); // Invalid client ID provided
+            }
+        } else {
+            // If the client field is null in updatedUser, set it to null in the existing User entity as well
+            existingUser.setClient(null);
+        }
+
+        // Save the updated user
+        User savedUser = userRepository.save(existingUser);
+
+        return ResponseEntity.ok(savedUser); // Return the updated user in the response
+        }
 
     // Validate user id parameter
     private boolean isValidUserId(Long id) {

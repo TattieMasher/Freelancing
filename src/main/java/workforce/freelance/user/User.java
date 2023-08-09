@@ -93,6 +93,14 @@ public class User {
         this.userType = userType;
     }
 
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
+
     public String getFullName() {
         return fName + " " + sName;
     }

@@ -9,5 +9,5 @@ import java.util.Optional;
 @Repository
 public interface ClientRepository extends JpaRepository<Client, Long> {
     List<Client> findAll(); // Query all clients
-    Optional<Client> findById(Long id); //
+    Optional<Client> findById(Long id); // Query clients by id
 }

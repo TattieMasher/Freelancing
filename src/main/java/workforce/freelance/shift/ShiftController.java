@@ -51,7 +51,7 @@ public class ShiftController {
         }
     }
 
-    @GetMapping("/getFiltered") // Dates MUST be formatted like ({"startDate":"YYYY-MM-DDTHH:mm"})
+    @GetMapping("/getFiltered") // Dates MUST be formatted like {"startDate":"YYYY-MM-DDTHH:mm"} TODO: Use this method as the bones to create filter methods for other objects
     public List<Shift> getFilteredShifts(@RequestBody Map<String, String> filters) {
         LocalDateTime startDate = null; // Declare filters
         LocalDateTime endDate = null;
